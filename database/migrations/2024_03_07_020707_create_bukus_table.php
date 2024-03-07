@@ -18,7 +18,7 @@ class CreateBukusTable extends Migration
             $table->string('kode');
             $table->string('kategori');
             $table->string('nama_buku');
-            $table->decimal('harga', 10, 2);
+            $table->decimal('harga', 10, 3);
             $table->integer('stok');
             $table->unsignedBigInteger('penerbit');
             $table->foreign('penerbit')->references('id')->on('penerbit')->onDelete('cascade')->onUpdate('cascade');

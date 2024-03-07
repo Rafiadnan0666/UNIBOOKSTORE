@@ -1,5 +1,10 @@
 @extends('master.dash')
 @section('konten')
+ <a href="{{ route('buku.index') }}">
+                            <button class="btn btn-warning mt-2">
+                                <i class="fa fa-arrow-circle-left"></i> Kembali
+                            </button>
+                        </a>
     <form action="{{ route('buku.store') }}" enctype="multipart/form-data" method="post">
         @csrf
         <div class="form-group">

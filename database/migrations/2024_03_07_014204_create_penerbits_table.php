@@ -18,6 +18,7 @@ class CreatePenerbitsTable extends Migration
             $table->string('kode')->unique();
             $table->string('nama');
             $table->string('alamat');
+            $table->string('kota');
             $table->bigInteger('telepon')->nullable();
         });
     }

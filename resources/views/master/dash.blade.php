@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Focus - Bootstrap Admin Dashboard </title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset("focus-2")}}/images/favicon.png">
-    <link rel="stylesheet" href="{{asset("focus-2")}}/vendor/owl-carousel/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="{{asset("focus-2")}}/vendor/owl-carousel/css/owl.theme.default.min.css">
-    <link href="{{asset("focus-2")}}/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
-    <link href="{{asset("focus-2")}}/css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('focus-2') }}/images/favicon.png">
+    <link rel="stylesheet" href="{{ asset('focus-2') }}/vendor/owl-carousel/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="{{ asset('focus-2') }}/vendor/owl-carousel/css/owl.theme.default.min.css">
+    <link href="{{ asset('focus-2') }}/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
+    <link href="{{ asset('focus-2') }}/css/style.css" rel="stylesheet">
 
 
 
@@ -44,9 +44,9 @@
         ***********************************-->
         <div class="nav-header">
             <a href="index.html" class="brand-logo">
-                <img class="logo-abbr" src="{{asset("focus-2")}}/images/logo.png" alt="">
-                <img class="logo-compact" src="{{asset("focus-2")}}/images/logo-text.png" alt="">
-                <img class="brand-title" src="{{asset("focus-2")}}/images/logo-text.png" alt="">
+                <img class="logo-abbr" src="{{ asset('focus-2') }}/images/logo.png" alt="">
+                <img class="logo-compact" src="{{ asset('focus-2') }}/images/logo-text.png" alt="">
+                <img class="brand-title" src="{{ asset('focus-2') }}/images/logo-text.png" alt="">
             </a>
 
             <div class="nav-control">
@@ -88,57 +88,6 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <ul class="list-unstyled">
-                                        <li class="media dropdown-item">
-                                            <span class="success"><i class="ti-user"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>Martin</strong> has added a <strong>customer</strong>
-                                                        Successfully
-                                                    </p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                        <li class="media dropdown-item">
-                                            <span class="primary"><i class="ti-shopping-cart"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>Jennifer</strong> purchased Light Dashboard 2.0.</p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                        <li class="media dropdown-item">
-                                            <span class="danger"><i class="ti-bookmark"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>Robin</strong> marked a <strong>ticket</strong> as
-                                                        unsolved.
-                                                    </p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                        <li class="media dropdown-item">
-                                            <span class="primary"><i class="ti-heart"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>David</strong> purchased Light Dashboard 1.0.</p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
-                                        <li class="media dropdown-item">
-                                            <span class="success"><i class="ti-image"></i></span>
-                                            <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong> James.</strong> has added a<strong>customer</strong>
-                                                        Successfully
-                                                    </p>
-                                                </a>
-                                            </div>
-                                            <span class="notify-time">3:20 am</span>
-                                        </li>
                                     </ul>
                                     <a class="all-notification" href="#">See all notifications <i
                                             class="ti-arrow-right"></i></a>
@@ -149,18 +98,19 @@
                                     <i class="mdi mdi-account"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="{{asset("focus-2")}}/app-profile.html" class="dropdown-item">
+                                    <a href="{{ asset('focus-2') }}/app-profile.html" class="dropdown-item">
                                         <i class="icon-user"></i>
                                         <span class="ml-2">Profile </span>
                                     </a>
-                                    <a href="{{asset("focus-2")}}/email-inbox.html" class="dropdown-item">
+                                    <a href="{{ asset('focus-2') }}/email-inbox.html" class="dropdown-item">
                                         <i class="icon-envelope-open"></i>
                                         <span class="ml-2">Inbox </span>
                                     </a>
-                                    <a href="{{asset("focus-2")}}/page-login.html" class="dropdown-item">
-                                        <i class="icon-key"></i>
-                                        <span class="ml-2">Logout </span>
-                                    </a>
+                                    <form method="POST" action="{{ route('logout') }}"> @csrf <a href="{{route('logout')}}"
+                                            class="dropdown-item"
+                                            onclick="event.preventDefault(); this.closest('form').submit();">
+                                            <i class="icon-key"></i> <span class="ml-2">Logout</span>
+                                        </a> </form>
                                 </div>
                             </li>
                         </ul>
@@ -182,11 +132,11 @@
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
                                 class="icon icon-single-04"></i><span class="nav-text">Admin</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="{{route("penerbit.index")}}">Penerbit</a></li>
-                               <li><a href="{{route("buku.index")}}">Buku</a></li>
+                            <li><a href="{{ route('penerbit.index') }}">Penerbit</a></li>
+                            <li><a href="{{ route('buku.index') }}">Buku</a></li>
                         </ul>
-                        <li><a href="{{route("dashboard")}}">Home</a></li>
-                        <li><a href="">pengadaan</a></li>
+                    <li><a href="{{ route('dashboard') }}">Home</a></li>
+                    <li><a href="{{ route('pengadaan') }}">pengadaan</a></li>
                     </li>
                 </ul>
                 </li>
@@ -206,7 +156,7 @@
             <!-- row -->
             <div class="container-fluid">
 
-              @yield('konten')
+                @yield('konten')
 
 
             </div>
@@ -247,35 +197,35 @@
         Scripts
     ***********************************-->
     <!-- Required vendors -->
-    <script src="{{asset("focus-2")}}/vendor/global/global.min.js"></script>
-    <script src="{{asset("focus-2")}}/js/quixnav-init.js"></script>
-    <script src="{{asset("focus-2")}}/js/custom.min.js"></script>
+    <script src="{{ asset('focus-2') }}/vendor/global/global.min.js"></script>
+    <script src="{{ asset('focus-2') }}/js/quixnav-init.js"></script>
+    <script src="{{ asset('focus-2') }}/js/custom.min.js"></script>
 
 
     <!-- Vectormap -->
-    <script src="{{asset("focus-2")}}/vendor/raphael/raphael.min.js"></script>
-    <script src="{{asset("focus-2")}}/vendor/morris/morris.min.js"></script>
+    <script src="{{ asset('focus-2') }}/vendor/raphael/raphael.min.js"></script>
+    <script src="{{ asset('focus-2') }}/vendor/morris/morris.min.js"></script>
 
 
-    <script src="{{asset("focus-2")}}/vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="{{asset("focus-2")}}/vendor/chart.js/Chart.bundle.min.js"></script>
+    <script src="{{ asset('focus-2') }}/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="{{ asset('focus-2') }}/vendor/chart.js/Chart.bundle.min.js"></script>
 
-    <script src="{{asset("focus-2")}}/vendor/gaugeJS/dist/gauge.min.js"></script>
+    <script src="{{ asset('focus-2') }}/vendor/gaugeJS/dist/gauge.min.js"></script>
 
     <!--  flot-chart js -->
-    <script src="{{asset("focus-2")}}/vendor/flot/jquery.flot.js"></script>
-    <script src="{{asset("focus-2")}}/vendor/flot/jquery.flot.resize.js"></script>
+    <script src="{{ asset('focus-2') }}/vendor/flot/jquery.flot.js"></script>
+    <script src="{{ asset('focus-2') }}/vendor/flot/jquery.flot.resize.js"></script>
 
     <!-- Owl Carousel -->
-    <script src="{{asset("focus-2")}}/vendor/owl-carousel/js/owl.carousel.min.js"></script>
+    <script src="{{ asset('focus-2') }}/vendor/owl-carousel/js/owl.carousel.min.js"></script>
 
     <!-- Counter Up -->
-    <script src="{{asset("focus-2")}}/vendor/jqvmap/js/jquery.vmap.min.js"></script>
-    <script src="{{asset("focus-2")}}/vendor/jqvmap/js/jquery.vmap.usa.js"></script>
-    <script src="{{asset("focus-2")}}/vendor/jquery.counterup/jquery.counterup.min.js"></script>
+    <script src="{{ asset('focus-2') }}/vendor/jqvmap/js/jquery.vmap.min.js"></script>
+    <script src="{{ asset('focus-2') }}/vendor/jqvmap/js/jquery.vmap.usa.js"></script>
+    <script src="{{ asset('focus-2') }}/vendor/jquery.counterup/jquery.counterup.min.js"></script>
 
 
-    <script src="{{asset("focus-2")}}/js/dashboard/dashboard-1.js"></script>
+    <script src="{{ asset('focus-2') }}/js/dashboard/dashboard-1.js"></script>
 
 </body>
 

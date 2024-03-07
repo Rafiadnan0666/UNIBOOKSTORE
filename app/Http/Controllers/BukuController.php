@@ -93,8 +93,7 @@ e
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Buku  $buku
-     * @return \Illuminate\Http\Response
+
      */
     public function destroy(Buku $buku)
     {

@@ -2,7 +2,7 @@
 @section('konten')
     <div class="card">
         <div class="card-header d-flex justify-content-between">
-            <h4 class="card-title">New Orders</h4>
+            <h4 class="card-title">Penerbit</h4>
             <a href="{{ route('penerbit.create') }}" class="btn btn-primary">Tambah</a>
         </div>
         <div class="card-body">

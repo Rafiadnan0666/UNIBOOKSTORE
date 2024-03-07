@@ -1,5 +1,10 @@
 @extends('master.dash')
 @section('konten')
+ <a href="{{ route('penerbit.index') }}">
+                            <button class="btn btn-warning mt-2">
+                                <i class="fa fa-arrow-circle-left"></i> Kembali
+                            </button>
+                        </a>
     <form action="{{ route('penerbit.update', $penerbit->id) }}" enctype="multipart/form-data" method="post">
         @csrf
         @method('PUT')
