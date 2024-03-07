@@ -129,7 +129,7 @@
             <div class="quixnav-scroll">
                 <ul class="metismenu" id="menu">
                      <li><a href="{{ route('dashboard') }}"><i class="icon icon-home"></i>Home</a></li>
-                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
+                    <li><a class="has-arrow" href="{{route("admin")}}" aria-expanded="false"><i
                                 class="icon icon-single-04"></i><span class="nav-text">Admin</span></a>
                         <ul aria-expanded="false">
                             <li><a href="{{ route('penerbit.index') }}">Penerbit</a></li>
