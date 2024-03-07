@@ -45,7 +45,6 @@
                                         <td>{{$i->harga}}</td>
                                         <td>{{$i->stok}}</td>
                                         <td>{{$i->penerbiti->nama}}</td>
-                                        <td><span class="badge badge-success">Done</span></td>
                                     </tr>
                                     @endforeach
                                 </tbody>

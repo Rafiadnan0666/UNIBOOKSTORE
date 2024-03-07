@@ -5,6 +5,7 @@ use App\Http\Controllers\PenerbitController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Buku;
+use App\Models\Penerbit;
 use Illuminate\Http\Request;
 
 
@@ -34,6 +35,11 @@ Route::middleware(['auth'])->group(function () {
         return view('pengadaan', compact('buku'));
     })->name('pengadaan');
 
+    Route::get('/admin', function (Request $request) {
+        $buku = Buku::all();
+        $penerbit = Penerbit::all();
+        return view('admin', compact('buku',"penerbit"));
+    })->name('admin');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
