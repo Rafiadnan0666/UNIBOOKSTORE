@@ -1,29 +1,13 @@
-{{-- <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout> --}}
 @extends('master.dash')
 @section('konten')
-      <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">New Orders</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table mb-0">
+    <div class="card">
+        <div class="card-header d-flex justify-content-between">
+            <h4 class="card-title">New Orders</h4>
+            <a href="{{ route('buku.create') }}" class="btn btn-primary">Tambah</a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                 <table class="table mb-0">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -45,12 +29,25 @@
                                         <td>{{$i->harga}}</td>
                                         <td>{{$i->stok}}</td>
                                         <td>{{$i->penerbiti->nama}}</td>
-                                        <td><span class="badge badge-success">Done</span></td>
+                                       <td>
+                                    <a href="{{ route('buku.edit', $i->id) }}"><span
+                                            class="badge badge-success">Edit</span></a>
+                                    <form action="{{ route('buku.destroy', $i->id) }}" method="POST"
+                                        class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="badge badge-danger"
+                                            onclick="return confirm('Yakin Ngapus')">
+                                            <span class="badge badge-danger">Hapus</span>
+                                        </button>
+                                    </form>
+
+                                </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-                </div>
+            </div>
+        </div>
+    </div>
 @endsection
